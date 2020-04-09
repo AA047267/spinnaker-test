@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: spinnaker
-        image: hello-world
+        image: tutum/hello-world
         ports:
         - containerPort: 80
         
