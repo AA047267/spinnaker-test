@@ -1,0 +1,35 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: spinnaker-stage
+  namespace: nginx-for-spinnaker
+spec:
+  selector:
+    matchLabels:
+      app: spinnaker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spinnaker
+    spec:
+      containers:
+      - name: spinnaker
+        image: tutum/hello-world
+        ports:
+        - containerPort: 80
+        
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-service
+  namespace: nginx-for-spinnaker
+spec:
+  selector:
+    app: spinnaker
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
