@@ -3,11 +3,13 @@ kind: Deployment
 metadata:
   name: spinnaker-stage
   namespace: nginx-for-spinnaker
+  annotations:
+    moniker.spinnaker.io/stack: staging
 spec:
   selector:
     matchLabels:
       app: spinnaker
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
