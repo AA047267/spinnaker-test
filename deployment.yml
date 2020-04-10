@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: spinnaker
-        image: nginx
+        image: nginx1231-ashit
         ports:
         - containerPort: 80
         
