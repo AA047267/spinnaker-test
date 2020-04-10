@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: spinnaker
-        image: hello-world
+        image: nginx
         ports:
         - containerPort: 80
         
